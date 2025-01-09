@@ -9,13 +9,20 @@ package _05_Synchronized_Swimming;
  */
 public class Swimmer extends Thread {
 	public final String name;
+	int laps;
 
 	public Swimmer(String name) {
 		this.name = name;
+		this.laps = 0;
 	}
 
 	@Override
 	public void run() {
 		// ...
+		while (laps < 5)
+		{
+			SynchronizedSwimming.takeTurn(this);
+			laps++;
+		}
 	}
 }
